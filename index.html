@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css\styles.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="app">
+			<h2>Todo List</h2>
+			<input type="text" v-model="newItem" />
+			<button @click.prevent="addItem">Add</button>
+			<ul>
+				<li v-for="(todo,index) in todos">
+					<input type="checkbox" v-model="todo.isDone" />
+					<span :class="{done : todo.isDone}"> {{todo.item}} </span>
+					<button @click="deleteItem(index)">Delete</button>
+				</li>
+			</ul>
+
+			<!-- デバッグ用表示 -->
+			<!-- <pre>{{$data}}</pre> -->
+		</div>
+
+		<!-- 開発バージョン、便利なコンソールの警告が含まれています -->
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+		<script src="\js\main.js"></script>
+	</body>
+</html>
